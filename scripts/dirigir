@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "qual a idade?"
+read idade
+if [ "$idade" -ge "18" ]
+then 
+echo "pode dirigir" 
+else 
+echo "não pode dirigir"
+fi
