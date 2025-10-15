@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "digite o servico a ser iniciado"
+read var1
+sudo service $var1 restart
+echo  ""
+echo "servicos ativos:"
+ps aux | grep $var1
+echo ""
+echo "portas abertas:"
+netstat -nltp 
