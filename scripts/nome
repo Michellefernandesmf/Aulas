@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "digite o seu nome:"
+read nome
+echo "olá, $nome"
