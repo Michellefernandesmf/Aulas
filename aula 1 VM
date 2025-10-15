@@ -1,0 +1,145 @@
+01- Virtualização e preparação do ambiente, Cybersecurity
+01.1- Virtualização: Conceituação, tipos e aplicabilidade.
+💡 Conceituação de Virtualização
+A virtualização é uma tecnologia que permite criar uma versão virtual de algo, como um sistema operacional, servidor, dispositivo de armazenamento ou recurso de rede. Em vez de depender de hardware físico dedicado, a virtualização usa software para simular esses recursos, permitindo que múltiplos sistemas operem de forma independente em uma única máquina física.
+Principais objetivos:
+• Melhor aproveitamento de recursos
+• Redução de custos operacionais
+• Maior flexibilidade e escalabilidade
+• Isolamento entre ambientes
+
+
+🧩 Tipos de Virtualização
+A virtualização pode ocorrer em diferentes camadas da infraestrutura de TI. Aqui estão os principais tipos:
+- Virtualização de Servidor
+- Virtualização de Sistema Operacional
+- Virtualização de Desktop
+- Virtualização de Aplicações
+- Virtualização de Rede
+- Virtualização de Armazenamento
+
+⚙️ Aplicabilidade da Virtualização
+A virtualização é amplamente utilizada em diversos setores e cenários:
+• Empresas de TI: Para consolidar servidores, reduzir custos com hardware e facilitar a manutenção.
+• Educação: Criação de laboratórios virtuais para ensino de redes, sistemas operacionais e segurança.
+• Desenvolvimento de Software: Testes em múltiplos ambientes sem necessidade de múltiplas máquinas físicas.
+• Computação em Nuvem: Base da infraestrutura de serviços como AWS, Azure e Google Cloud.
+• Segurança: Isolamento de ambientes para testes de malware ou simulações de ataques.
+
+01.2- VirtualBox: Download e instalação;
+O VirtualBox é uma das ferramentas de virtualização mais populares e acessíveis, ideal para quem quer criar máquinas virtuais no próprio computador. Vamos ao passo a passo completo:
+
+📦 O que é o VirtualBox?
+O Oracle VM VirtualBox é um software gratuito e de código aberto que permite criar e gerenciar máquinas virtuais. Com ele, você pode rodar sistemas operacionais como Linux, Windows, macOS (com restrições), entre outros, dentro do seu sistema principal.
+
+🌐 Download do VirtualBox
+Você pode baixar o VirtualBox diretamente do site oficial:
+🔗 Página oficial de download do VirtualBox
+https://www.virtualbox.org/wiki/Downloads
+
+Escolha a versão correta:
+• Windows hosts – Para sistemas Windows
+• macOS hosts – Para Mac
+• Linux distributions – Para distribuições Linux (Ubuntu, Fedora, etc.)
+• Solaris hosts – Para sistemas Solaris
+Também é recomendado baixar o Extension Pack, que adiciona recursos extras como suporte a USB 2.0/3.0, RDP e inicialização PXE.
+
+
+🛠️ Instalação no Windows (passo a passo)
+1. Baixe o instalador no site oficial.
+2. Execute o arquivo como administrador.
+3. Siga o assistente de instalação:
+- Escolha os componentes (geralmente pode deixar como está).
+- Confirme os avisos sobre reinicialização de rede.
+- Clique em Install.
+4. Aguarde a instalação e clique em Finish.
+5. O VirtualBox será iniciado e estará pronto para uso.
+
+01.3- Kali Linux: Download da máquina virtual pronta para o uso;
+Para usar o Kali Linux sem precisar instalar tudo manualmente, a melhor opção é baixar uma máquina virtual pronta para uso. Isso economiza tempo e evita configurações complexas. Aqui vai o guia completo:
+
+🐉 O que é Kali Linux?
+O Kali Linux é uma distribuição baseada em Debian voltada para testes de penetração, análise forense digital e segurança da informação. Ele vem com centenas de ferramentas pré-instaladas para profissionais de cibersegurança.
+
+📥 Download da Máquina Virtual Pronta
+Você pode baixar imagens pré-configuradas diretamente do site oficial do Kali Linux:
+🔗 Imagens de Máquinas Virtuais Kali Linux (VirtualBox)
+https://www.kali.org/get-kali/#kali-virtual-machines
+
+Opções disponíveis:
+https://cdimage.kali.org/kali-2025.2/kali-linux-2025.2-virtualbox-amd64.7z
+• VirtualBox Machine (.7z) – Ideal para acrescentar direto no VirtualBox
+Essa imagem já vêm com o sistema instalado e configurado, bastando descompactar e acrescentar ao VirtualBox e iniciar.
+
+🛠️ Como usar no VirtualBox
+1. Baixe o arquivo .7z do Kali Linux e descompacte.
+2. Abra o VirtualBox.
+3. Clique em acrescentar.
+4. Selecione o arquivo  baixado e descompactado.
+5. Clique em Abrir.
+6. Após a importação, clique em Iniciar para rodar o Kali Linux.
+Credenciais padrão:
+• Usuário: kali
+• Senha: kali
+
+
+01.4- Metasploitable2 - Linux;
+🧨 O que é o Metasploitable2?
+O Metasploitable2 é uma máquina virtual Linux intencionalmente vulnerável, criada pela equipe do Metasploit. Ela serve como um "saco de pancadas" digital para testar ferramentas de segurança, explorar vulnerabilidades e treinar habilidades de hacking ético.
+
+📥 Onde baixar o Metasploitable2
+https://drive.google.com/file/d/1QQwcYOcoKg4zAUEB0xS5urE53H4xWgv_/view
+
+🔐 Credenciais padrão
+• Usuário: msfadmin
+• Senha: msfadmin
+Essas credenciais dão acesso total à máquina, inclusive como root, para facilitar os testes.
+
+⚙️ Como usar no VirtualBox
+1. Baixe e descompacte o arquivo.
+2. Vá em Arquivo > Importar Appliance.
+3. Selecione o arquivo .ova baixado.
+4. Clique em Avançar e depois em Importar.
+5. Configure a rede como "Host-only" para segurança.
+6. Clique em Iniciar para rodar o Kali Linux.
+
+🧪 O que você pode testar
+• Exploração de serviços vulneráveis (FTP, SSH, HTTP, etc.)
+• Uso do Metasploit Framework para ataques automatizados
+• Escalada de privilégios
+• Análise forense e detecção de falhas
+
+
+01.5- Metasploitable3 - Windows;
+O Metasploitable3 (Windows Server 2008) é uma versão avançada da máquina vulnerável Metasploitable, criada para simular um ambiente Windows cheio de falhas de segurança — ideal para quem quer aprender pentest em sistemas Microsoft.
+
+🧱 O que é o Metasploitable3 Windows?
+É uma máquina virtual baseada no Windows Server 2008 R2, construída com diversas vulnerabilidades conhecidas. Ela serve como alvo para testes com o Metasploit Framework, além de outras ferramentas como Nmap, Burp Suite, e Wireshark.
+
+📥 Onde baixar o Metasploitable3
+Você pode baixar pelo seguinte link:
+https://www.dropbox.com/scl/fi/r71z1725hu3j84olhc2pm/Metasploitable3-win2k8.ova?rlkey=exl8p2v5t5a8fgb34bv5hiw06&e=1&dl=0
+
+
+🔍 O que você pode explorar
+• Vulnerabilidades em serviços como SMB, RDP, IIS, SQL Server
+• Exploração de falhas com CVEs reais
+• Técnicas de privilege escalation no Windows
+• Ataques com Metasploit, como  e ms08_067_netapi e psexec
+Sugestão de curso gratuito de Linux para a próxima aula:
+Linux Unhatched: Uma rápida introdução ao popular sistema operacional Linux.
+https://www.netacad.com/pt/courses/linux-unhatched?courseLang=pt-BR
+
+
+Resumo:
+📥 Download da Máquina Virtual Pronta Kali Linux
+https://cdimage.kali.org/kali-2025.2/kali-linux-2025.2-virtualbox-amd64.7z
+view
+📥 Download do Metasploitable2
+https://drive.google.com/file/d/1QQwcYOcoKg4zAUEB0xS5urE53H4xWgv_/
+
+📥 Download do Metasploitable3
+https://www.dropbox.com/scl/fi/r71z1725hu3j84olhc2pm/Metasploitable3-win2k8.ova?rlkey=exl8p2v5t5a8fgb34bv5hiw06&e=1&dl=0
+
+📥 fazer o Curso Linux Unhatched
+https://www.netacad.com/pt/courses/linux-unhatched?courseLang=pt-BR
