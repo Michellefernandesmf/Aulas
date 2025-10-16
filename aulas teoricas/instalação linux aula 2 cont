@@ -35,22 +35,16 @@ Você pode explorar mais sobre o Debian no site oficial do projeto.
 • Clique em “Finalizar”
 
 
-
-
 • Clique na Máquina Virtual e depois em “Configurações” 
 • Na aba “Rede”, altere o item “Conectado a:” para “Placa em modo Bridge” e clique em “OK”
-
 
 
 🚀 02.2.3- Iniciar a instalação
 • Inicie a VM
 
-
 • Na tela inicial, selecione: Install
 
 • Escolha o idioma, país e layout do teclado
-
-
 
 🌐 02.2.4- Configurar rede
 • Configure a interface de rede (geralmente detectada automaticamente) 
@@ -62,11 +56,7 @@ Você pode explorar mais sobre o Debian no site oficial do projeto.
 • Defina a senha do usuário root
 
 
-
 • Crie um usuário comum com nome e senha
-
-
-
 
 
 • Configure a time zone
@@ -124,9 +114,6 @@ useruser
 ip -br a
 
 
-
-
-
 • Login com o usuário root 
 su root
 rootroot
@@ -179,8 +166,6 @@ Você pode configurar o WinSCP para abrir sessões SSH no PuTTY com um clique. I
 • 	Isso abrirá uma janela do PuTTY já conectada ao mesmo servidor
 
 
-
-
 • 	Digite a senha do usuário para obter acesso:
 
 📁 Abrir sessão salva no PuTTY
@@ -222,7 +207,6 @@ cd ~
 cd /
 cd /home/kali
 cd ..
-
 
 
 su
