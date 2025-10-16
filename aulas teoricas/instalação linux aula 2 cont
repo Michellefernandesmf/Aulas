@@ -1,0 +1,504 @@
+02- Linux Instalação e utilização de comandos básicos
+🎯 02.1- Sobre o Debian
+Debian é uma das distribuições Linux mais respeitadas e estáveis, criada em 1993 por Ian Murdock. É totalmente livre e de código aberto, mantida por uma comunidade global de voluntários. Ele serve como base para outras distribuições populares como Ubuntu, Kali Linux e Linux Mint. Suas principais características incluem:
+✅ Estabilidade e segurança: ideal para servidores e ambientes críticos.
+📦 Gerenciamento de pacotes com APT: facilita instalação e atualização de softwares.
+🌍 Multiplataforma: compatível com diversas arquiteturas (x86, ARM, etc.).
+🧩 Interface flexível: pode ser usada com GNOME, KDE, Xfce, ou apenas terminal.
+Você pode explorar mais sobre o Debian no site oficial do projeto.
+🛠️ 02.2- Croqui de instalação via terminal no VirtualBox
+
+🧭 Roteiro de Instalação do Debian via Terminal no VirtualBox
+🔧 02.2.1- Preparar o ambiente
+• Baixe a ISO do Debian (versão "netinst" ou "CD") no site oficial: https://www.debian.org/distrib
+
+• Abra o VirtualBox e clique em "Novo"
+
+
+• Nome: Debian 
+• Tipo: Linux 
+• Versão: Debian(x64)
+
+• Configure:
+• Memória RAM: mínimo 2048 MB (recomendado 4096 MB) 
+• Disco rígido virtual: 50 GB ou mais (VDI, dinámicamente alocado)
+
+
+📀 02.2.2- Montar a ISO
+
+
+
+• Vá em Configurações > Armazenamento 
+• Clique no ícone do disco vazio 
+• Selecione a ISO do Debian como disco óptico virtual 
+• Marque a opção “Pular a Instalação Desassistida” 
+• Clique em “Finalizar”
+
+
+
+
+• Clique na Máquina Virtual e depois em “Configurações” 
+• Na aba “Rede”, altere o item “Conectado a:” para “Placa em modo Bridge” e clique em “OK”
+
+
+
+🚀 02.2.3- Iniciar a instalação
+• Inicie a VM
+
+
+• Na tela inicial, selecione: Install
+
+• Escolha o idioma, país e layout do teclado
+
+
+
+🌐 02.2.4- Configurar rede
+• Configure a interface de rede (geralmente detectada automaticamente) 
+• Defina o nome da máquina (hostname)
+
+• Configure o domínio (opcional)
+
+🔐 02.2.5- Criar usuários
+• Defina a senha do usuário root
+
+
+
+• Crie um usuário comum com nome e senha
+
+
+
+
+
+• Configure a time zone
+
+🧱 02.2.6- Particionamento do disco
+• 	Escolha: modo guiado
+
+
+• 	Selecione o disco virtual
+
+• 	Selecione a opção “All files in one partition”
+
+
+• 	Clique em “Finish partitioning and write changes to disk”
+
+• 	Verifique o particionamento e clique em “Yes”
+
+📦 02.2.7- Instalar sistema base
+• 	O instalador irá copiar os arquivos e instalar o sistema base
+
+• 	Clique em “No”
+
+🌍 02.2.8- Configurar repositórios
+• 	Escolha o “packet manager”
+
+• 	Escolha o país para o mirror
+
+• 	Deixe a opção do proxy em branco e clique em “Continue”
+
+
+• 	Clique em “No”
+
+🧰 02.2.9- Selecionar softwares
+• 	Desmarque todos os ambientes gráficos (GNOME, KDE, etc.) 
+• 	Marque apenas: web server, SSH server e Standard system utilities
+
+🏁 02.2.10- Instalar o GRUB
+• 	Escolha instalar o GRUB no setor de inicialização principal (MBR), clique em “Yes”
+
+• 	Desça o cursor até “/dev/sda” e dê o enter
+
+• 	Finalize a instalação
+
+🔄 02.2.11- Reiniciar
+• 	Remova a ISO virtual 
+• 	Reinicie a VM
+
+
+• 	Faça login com o usuário criado
+user
+useruser
+
+
+• 	Identifique o endereço de IP
+ip -br a
+
+
+
+
+
+• Login com o usuário root 
+su root
+rootroot
+id
+
+✅ Pronto! Você agora tem um sistema Debian minimalista rodando via terminal. A partir daqui, pode instalar pacotes com , configurar serviços, ou até instalar uma interface gráfica se quiser.
+02.3 Putty e WinSCP
+Duas ferramentas essenciais para quem trabalha com servidores Linux a partir do Windows. Elas são complementares e muito usadas por administradores de sistemas, desenvolvedores e entusiastas de Linux.
+🖥️ 02.3.1- PuTTY
+PuTTY é um cliente SSH e emulador de terminal gratuito e leve. Ele permite que você acesse servidores Linux remotamente via terminal, usando protocolos como: 
+🔐 SSH (mais comum e seguro) 
+📡 Telnet 
+🔄 Serial e rlogin
+Principais recursos: 
+• Interface simples e rápida 
+• Suporte a autenticação por chave pública 
+• Configurações avançadas de terminal e teclado 
+• Compatível com Windows, Linux e macOS
+📥 Download do PuTTY:
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+💡 Uso típico: conectar-se a um servidor Debian via SSH e executar comandos diretamente no terminal.
+📁 02.3.2- WinSCP
+WinSCP é um cliente gráfico para SFTP, SCP e FTP, usado para transferir arquivos entre seu computador e um servidor remoto. Principais recursos: 
+• Interface gráfica intuitiva (estilo Windows Explorer) 
+• Suporte a autenticação por senha e chave pública 
+• Sincronização de diretórios 
+• Integração com PuTTY: você pode abrir sessões SSH diretamente do WinSCP
+📥 Download do WinSCP:
+https://winscp.net/eng/download.php
+
+
+💡 Uso típico: enviar arquivos de configuração, scripts ou backups para o servidor Debian de forma segura.
+🔄 02.3.3- Integração entre PuTTY e WinSCP
+Você pode configurar o WinSCP para abrir sessões SSH no PuTTY com um clique. Isso é útil quando você está navegando por arquivos no WinSCP e quer abrir o terminal no mesmo diretório remoto.
+🔗 Como integrar PuTTY ao WinSCP
+🛠️ 02.3.3.1- Instale o PuTTY
+• 	Baixe e instale o PuTTY
+⚙️ 02.3.3.2- Configure o caminho no WinSCP
+• 	Abra o WinSCP 
+• 	Vá em Preferências (ícone de engrenagem ou menu "Opções") 
+• 	Clique em Integração > Aplicativos 
+• 	Em Caminho para PuTTY, selecione o executável do PuTTY
+🚀 02.3.3.3- Abrir sessão atual no PuTTY
+
+
+
+• 	Após conectar ao servidor pelo WinSCP, vá em: Menu Comandos > Abrir no PuTTY
+
+• 	Isso abrirá uma janela do PuTTY já conectada ao mesmo servidor
+
+
+
+
+• 	Digite a senha do usuário para obter acesso:
+
+📁 Abrir sessão salva no PuTTY
+• 	Na tela de login do WinSCP, clique em: 
+• 	Gerenciar > Abrir no PuTTY 
+• 	Isso usa as configurações salvas no WinSCP para abrir uma sessão PuTT
+
+02.4- Comandos básicos do Linux
+Linux Unhatched: ”Linux está em todo lugar!”
+Por que aprender Linux?
+O que é Linux?
+Quem pode usar o Linux?
+Profissões de TI que exigem conhecimento de habilidades em Linux:
+Engenharia de rede
+Cibersegurança
+Desenvolvimento/Programação
+Análise de Dados
+Sintaxe de comandos:
+comando [opções…] [argumentos…]
+
+02.4.1- Comandos iniciais de localização de movimentação.
+ls
+Listar conteúdo
+Exemplos:
+ls -l
+ls -la
+ls Desktop
+ls -l /etc/passwd
+
+pwd
+Exibe na tela o caminho onde está atualmente
+Exemplos:
+pwd
+
+cd
+Mudar de diretório
+Exemplos:
+cd ~
+cd /
+cd /home/kali
+cd ..
+
+
+
+su
+Mudar usuário
+Exemplos:
+su root
+sudo su
+
+locate
+Localizar arquivos
+Exemplos:
+locate passwd
+locate nc.exe
+Obs: para atualizar o banco de dados, execute o comando $ sudo updatedb
+
+touch
+Criar um arquivo
+Exemplo
+touch teste.txt
+02.4.2- Permissões de arquivos:
+ler (r)
+escrever (w)
+executar (x)
+02.4.3- Proprietários:
+User
+Group
+Others
+02.4.4- Comandos para permissões e propriedade:
+chmod
+Listar, adicionar e remover permissões
+Exemplo:
+chmod teste.txt
+chmod +x teste.txt
+chmod -x teste.txt
+
+chown
+Alterar permissões de proprietários de arquivos
+sudo chown kali:root teste.txt
+sudo chown kali:kali teste.txt
+02.4.5- Comandos para manipulação de arquivos:
+cat
+Exibir o conteúdo de um arquivo na tela
+Exemplo:
+cat /etc/passwd
+
+tac
+Exibir o conteúdo de um arquivo na tela de forma reversa
+Exemplo:
+tac /etc/passwd
+
+head
+Exibir as 10 primeiras linhas do conteúdo de um arquivo na tela
+Exemplo:
+head /etc/passwd
+head -n 1 /etc/passwd
+
+tail
+Exibir as 10 ultimas linhas do conteúdo de um arquivo na tela
+Exemplo:
+tail /etc/passwd
+tail -n 1 /etc/passwd
+
+cp
+Realiza a cópia de um arquivo
+Exemplo:
+cp /home/kali/test.txt /home/kali/desktop/test.txt
+cp /etc/passwd .
+Obs.: O caracter . indica o local atual no terminal, ou seja irá copiar um arquivo de onde ele estiver para a sua localização atual.
+
+mv
+Move ou renomeia um arquivo
+Exemplo:
+mv /home/kali/Desktop/test.txt /home/kali/test.txt
+mv test.txt teste2.txt
+
+rm
+apaga um arquivo
+Exemplo:
+rm teste2.txt
+
+grep
+Faz uma filtragem em um arquivo por uma palavra específica
+Exemplo:
+grep root /etc/passwd
+grep kali /etc/passwd
+grep bash /etc/passwd
+
+02.4.6- Desligando
+Comandos para desligar o linux
+shutdown now
+init 0
+halt -p
+
+Comando para reiniciar
+init 6
+02.4.7- Redes
+ifconfig
+Exibe as informações detalhadas de rede
+
+iwconfig
+Exibe as informações detalhadas de rede Wi-Fi
+
+ip a
+Exibe as informações detalhadas de rede
+
+ip -br a
+Exibe as informações resumidas de rede
+
+ping
+Testa a conectividade entre dois hosts
+Exemplo
+ping -c 4 192.168.1.6
+
+netstat
+Exibe informações de portas abertas e conexões de rede
+Exemplo
+netstat -nltp
+n = não exibir os nomes do protocolo
+l = exibir portas em modo listener (escuta)
+t = exibir informações somente do protocolo TCP
+p = exibir inforções de processos e programas
+
+ss
+Exibe informações de portas abertas e conexões de rede
+Exemplo
+ss -nlt
+n = não exibir os nomes do protocolo
+l = exibir portas em modo listener (escuta)
+t = exibir informações somente do protocolo TCP
+
+02.4.8- Processos
+ps
+Lista os processos em execução
+Exemplo
+ps aux
+ps aux | grep mousepad
+
+
+kill
+Encerra um processo
+kill número-do-processo
+
+02.4.9- Gerenciamento de pacotes:
+apt
+
+apt update
+Atualiza a lista de repositórios
+
+apt upgrade
+Aplica as atualizações no sistema
+
+apt search
+Pesquisa por um pacote
+
+apt install
+Instala um pacote
+
+apt remove
+Remove um pacote
+
+apt purge
+Limpa os dados do pacote excluído
+
+02.4.10- Gerenciamento de usuários
+adduser
+Adiciona um usuário e inclui o usuário em um grupo
+Exemplo
+adduser teste
+adduser teste sudo
+
+
+deluser
+Apaga um usuário
+deluser teste
+
+passwd
+Troca a senha do usuário
+passwd
+Obs: o usuário root pode trocar a senha de qualquer usuário
+sudo passwd teste
+
+02.4.11- Canalizações e direcionamentos:
+>
+Direciona a saída para outra aplicação
+Exemplo
+echo teste > teste.txt
+
+<
+Direciona um conteúdo para a entrada da aplicação
+Exemplo
+cat < /etc/passwd
+
+|
+Direciona a saída de um comando para outro processo
+cat /etc/passwd | wc -l
+
+02.4.12- Editores de texto:
+vi
+vi teste.txt
+
+i ou insert = entra no modo de edição
+esc = sai do modo de edição
+:wq = grava e sai
+
+nano
+nano teste.txt
+
+02.5- Resumo:
+🎯 0. Leitura Sobre o Debian
+🔧 1. Preparar o ambiente. Download da ISO do Debian https://www.debian.org/distrib
+📀 2. Montar a ISO
+🚀 3. Iniciar a instalação
+🌐 4. Configurar rede
+🔐 5. Criar usuários
+🧱 6. Particionamento do disco
+📦 7. Instalar sistema base
+🌍 8. Configurar repositórios
+🧰 9. Selecionar softwares
+🏁 10. Instalar o GRUB
+🔄 11. Reiniciar
+🖥️ 12. Leitura sobre Putty e WinSCP
+📥 13. Download do PuTTY: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+📥 14. Download do WinSCP: https://winscp.net/eng/download.php
+🔄 15. Integração entre PuTTY e WinSCP
+🖥️ 16. Comandos básicos do Linux
+
+Atividade:
+https://github.com/thiagosmith/linux-trainning
+
+$ git clone https://github.com/thiagosmith/linux-trainning.git
+
+$ cd linux-trainning/
+
+$ chmod +x linux.sh
+
+$ ./linux.sh
+
+
+As atividades iniciam a partir do diretório "estrutura", (cd estrutura)
+
+1- Quantas pastas tem dentro de "estrutura"?
+
+2- Qual o nome do animal que começa com a letra P ?
+
+3- Qual nome do carro começa com a letra H ?
+
+4- Quais as pastas dentro de cybersecurity ?
+
+5- Qual o nome do professor de matemática que inicia com a letra S ?
+
+6- Qual o nome do professor de geografia que inicia com a letra S ?
+
+7- Qual o nome do professor de biologia que inicia com a letra L ?
+
+8- Qual o nome do professor de portugues que inicia com a letra B ?
+
+9- Qual o nome do peixe que começa com a letra D ?
+
+10- Quais as pastas dentro de red-team ?
+
+11- Quais os tipos de pentest ?
+
+12- Quais os standards utilizados pelo white team ?
+
+13- Quais os workshops realizados pelo purple team ?
+
+14- Quais os níveis de resposta são atendidos pelo blue team ?
+
+15- Qual peixe utiliza a extensão csv ? 
+
+16- Qual o ataque realizado pelo operador red team com extensão txt ?
+
+17- Qual carro tem a maior quantidade de letras ?
+
+18- Qual animal tem a menor quantidade de letras ?
+
+19- Quantas matérias temos na nossa escola ?
+
+20- Quantos professores trabalham na escola ?
