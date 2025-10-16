@@ -1,0 +1,161 @@
+04- Introdução a linguagem de programação shell script
+04.1. Conceitos Iniciais
+04.1.1. O que é Shell?
+O shell é uma interface entre o usuário e o sistema operacional. Ele interpreta comandos digitados e os executa. O mais comum é o Bash (Bourne Again SHell), mas existem outros como Zsh, Fish e Dash.
+04.1.2. Diferença entre terminal, shell e script:
+• Terminal: a janela onde você digita comandos.
+• Shell: o programa que interpreta esses comandos.
+• Script: um arquivo de texto com uma sequência de comandos que o shell executa automaticamente.
+04.1.3. Por que usar shell scripts?
+• Automatizar tarefas repetitivas
+• Criar backups
+• Monitorar sistemas
+• Manipular arquivos em lote
+• Integrar com cron jobs para execução agendada
+
+04.2. Preparando o Ambiente
+04.2.1. Acesso ao terminal:
+Kali Linux: terminal nativo
+
+04.2.2. Criando o primeiro script:
+$ echo "Olá, mundo!" > hello.sh 
+$ chmod +x hello.sh 
+$ ./hello.sh 
+
+04.2.2.1. Explicação:
+• echo : imprime texto
+• > : redireciona para arquivo
+• chmod +x : dá permissão de execução
+• ./ : executa o script
+
+
+04.3. Sintaxe Básica
+04.3.1 Comentários:
+# Isso é um comentário
+
+04.3.2. Variáveis:
+nome="Thiago" 
+echo "Olá, $nome"
+04.3.3. Entrada do usuário:
+read idade 
+echo "Você tem $idade anos"
+04.4. Estruturas de Controle
+04.4.1. Condicionais:
+if [ $idade -ge 18 ]; then echo "Maior de idade" else echo "Menor de idade" fi
+Operadores:
+-eq: igual =
+-ne: diferente =/=
+-gt: maior  >
+-lt: menor  <
+-le: menor ou igual <=
+-ge: maior ou igual  >=
+
+
+04.4.2. Laços:
+for i in {1..5}; do echo "Número $i" done
+04.5. Trabalhando com Arquivos e Diretórios
+04.5.1 Redirecionamento:
+echo "Log de acesso" >> log.txt
+
+04.5.2. Pipes:
+cat log.txt | grep "erro"
+
+04.5.3. Testes:
+if [ -f "arquivo.txt" ]; then 
+    echo "Arquivo existe" 
+fi
+
+04.6. Boas práticas:
+Comentários explicativos
+Nomes claros para variáveis
+Separar lógica em funções
+Validar entradas do usuário
+
+04.7. Exercícios
+04.7.1. Nível Fácil
+Esses exercícios são ideais para quem está começando e precisa se familiarizar com a sintaxe básica.
+04.7.1.1. Olá, mundo!
+Crie um script chamado ola.sh que exiba a mensagem:
+Olá, mundo!
+
+04.7.1.2. Saudação personalizada
+Crie um script que peça o nome do usuário e exiba uma saudação:
+Digite seu nome: Thiago Olá, Thiago!
+
+04.7.1.3. Mostrar data e hora
+Crie um script que exiba a data e hora atual usando o comando date.
+
+04.7.1.4. Listar arquivos
+Crie um script que liste todos os arquivos do diretório atual usando ls.
+
+04.7.1.5. Verificar se arquivo existe
+Crie um script que peça o nome de um arquivo e diga se ele existe ou não:
+Digite o nome do arquivo: teste.txt Arquivo existe!
+
+04.7.1.6. Exibição da localização atual
+Crie um script que exiba a informação do diretório atual usando pwd.
+
+04.7.1.7. Exibição usuário atual
+Crie um script que mostre o nome do usuário atual usando whoami.
+
+04.7.1.8. Exibição do nome do computador
+Crie um script que mostre o nome do computador usando hostname.
+
+04.7.1.9. Exibição do endereço de IP do computador
+Crie um script que mostre o endereço de IP do computador usando ip.
+
+04.7.1.10. Iniciar o serviço do apache 
+Crie um script que inicie o serviço do apache usando service.
+
+04.7.1.11. Iniciar o serviço do SSH 
+Crie um script que inicie o serviço do apache usando systemctl.
+
+04.7.1.12. Exibição dos serviços em execução no computador
+Crie um script que mostre os serviços em execução no computador usando netstat.
+
+04.7.1.13. Juntando as peças 1
+Crie um script que mostre informações do computador usando  whoami, pwd e hostname.
+O nome do usuário é:
+O diretório atual é:
+O nome do computador é:
+
+
+04.7.1.14. Juntando as peças 2
+Crie um script que mostre informações de rede do computador usando  ip, route e netstat.
+O endereço de ip do computador é:
+O gateway do computador é:
+Os serviços em execução são:
+
+04.7.2. Exercícios – Nível Médio
+Esses exigem mais lógica e uso de estruturas de controle.
+04.7.2.1. Verificar idade
+Crie um script que peça a idade do usuário e diga se ele pode ou não dirigir.
+04.7.2.2. Seleção
+Crie um script que pergunte se estudou hoje, 1 para SIM e 2 para não. Se a resposta for SIM dê os parabéns, se a resposta for NÃO, solicite que estude. Use case para tratar as opções.
+
+04.7.2.2. Repetição
+Crie um script que exiba na tela de 1 a 10 usando um loop for.
+
+04.7.2.3. Criador de endereços de IP
+Crie um script que crie endereços de ip da rede 192.168.1.0/24 de 30 a 50 e salve numa lista de ips em um arquivo chamado ips.txt usando um loop for.
+
+04.7.2.4. Ping 
+Crie um script que leia o arquivo ips.txt da atividade anterior e realize um ping em cada um dos endereços usando um loop for e ping.
+04.7.2.5. Ping Sweep
+Crie um script que faça um ping em todos os ips da sua rede e exiba na tela apenas os endereços de IP que responderam ao ping usando um loop for e ping.
+for host in {1..254};
+ping -c 1 $1.$host | grep "64 bytes" | cut -d ":" -f 1 | cut -d " " -f 4;
+
+04.7.2.6. Port Scanner
+Crie um script que faça um port scanner em um endereço de ip da sua rede, informando as portas abertas usando um loop for e hping3.
+for ports in {1..65535};
+hping3 -S -p $ports -c 1 192.18.0.1 2> /dev/null | grep "flags=SA" | cut -d " " -f 2 | cut -d "=" -f 2;
+
+04.7.2.7. Web Parsing HTML 1
+Crie um script que acesse um site, baixe o seu index.html, localize URL na página para salvar em um arquivo chamado sites.txt e exibindo as informações dos sites na tela usando wget e filtros.
+wget www.businesscorp.com.br
+cat index.html | grep href | cut -d "/" -f 3 | grep "\." | cut -d '"' -f 1 | grep -v "<l" > lista.txt
+
+04.7.2.8. Web Parsing HTML 2
+Aprimore o script anterior, incrementando para que ele exiba na tela o endereço IP dos sites encontrados na tela usando wget, filtros e host.
+for url in $(cat lista.txt);do host $url | grep "has address";done
