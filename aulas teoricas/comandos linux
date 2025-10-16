@@ -1,0 +1,155 @@
+Sintaxe de comandos:
+comando [opções…] [argumentos…]
+
+02.4.1- Comandos iniciais de localização de movimentação.
+ls
+Listar conteúdo
+Exemplos:
+ls -l
+ls -la
+ls Desktop
+ls -l /etc/passwd
+
+pwd
+Exibe na tela o caminho onde está atualmente
+Exemplos:
+pwd
+
+cd
+Mudar de diretório
+Exemplos:
+cd ~
+cd /
+cd /home/kali
+cd ..
+
+
+
+su
+Mudar usuário
+Exemplos:
+su root
+sudo su
+
+locate
+Localizar arquivos
+Exemplos:
+locate passwd
+locate nc.exe
+Obs: para atualizar o banco de dados, execute o comando $ sudo updatedb
+
+touch
+Criar um arquivo
+Exemplo
+touch teste.txt
+02.4.2- Permissões de arquivos:
+ler (r)
+escrever (w)
+executar (x)
+02.4.3- Proprietários:
+User
+Group
+Others
+02.4.4- Comandos para permissões e propriedade:
+chmod
+Listar, adicionar e remover permissões
+Exemplo:
+chmod teste.txt
+chmod +x teste.txt
+chmod -x teste.txt
+
+chown
+Alterar permissões de proprietários de arquivos
+sudo chown kali:root teste.txt
+sudo chown kali:kali teste.txt
+02.4.5- Comandos para manipulação de arquivos:
+cat
+Exibir o conteúdo de um arquivo na tela
+Exemplo:
+cat /etc/passwd
+
+tac
+Exibir o conteúdo de um arquivo na tela de forma reversa
+Exemplo:
+tac /etc/passwd
+
+head
+Exibir as 10 primeiras linhas do conteúdo de um arquivo na tela
+Exemplo:
+head /etc/passwd
+head -n 1 /etc/passwd
+
+tail
+Exibir as 10 ultimas linhas do conteúdo de um arquivo na tela
+Exemplo:
+tail /etc/passwd
+tail -n 1 /etc/passwd
+
+cp
+Realiza a cópia de um arquivo
+Exemplo:
+cp /home/kali/test.txt /home/kali/desktop/test.txt
+cp /etc/passwd .
+Obs.: O caracter . indica o local atual no terminal, ou seja irá copiar um arquivo de onde ele estiver para a sua localização atual.
+
+mv
+Move ou renomeia um arquivo
+Exemplo:
+mv /home/kali/Desktop/test.txt /home/kali/test.txt
+mv test.txt teste2.txt
+
+rm
+apaga um arquivo
+Exemplo:
+rm teste2.txt
+
+grep
+Faz uma filtragem em um arquivo por uma palavra específica
+Exemplo:
+grep root /etc/passwd
+grep kali /etc/passwd
+grep bash /etc/passwd
+
+02.4.6- Desligando
+Comandos para desligar o linux
+shutdown now
+init 0
+halt -p
+
+Comando para reiniciar
+init 6
+02.4.7- Redes
+ifconfig
+Exibe as informações detalhadas de rede
+
+iwconfig
+Exibe as informações detalhadas de rede Wi-Fi
+
+ip a
+Exibe as informações detalhadas de rede
+
+ip -br a
+Exibe as informações resumidas de rede
+
+ping
+Testa a conectividade entre dois hosts
+Exemplo
+ping -c 4 192.168.1.6
+
+netstat
+Exibe informações de portas abertas e conexões de rede
+Exemplo
+netstat -nltp
+n = não exibir os nomes do protocolo
+l = exibir portas em modo listener (escuta)
+t = exibir informações somente do protocolo TCP
+p = exibir inforções de processos e programas
+
+ss
+Exibe informações de portas abertas e conexões de rede
+Exemplo
+ss -nlt
+n = não exibir os nomes do protocolo
+l = exibir portas em modo listener (escuta)
+t = exibir informações somente do protocolo TCP
+
